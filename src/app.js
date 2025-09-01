@@ -1,11 +1,13 @@
 const express=require('express')
-
+const mongoose=require('mongoose')
+const userRoutes=require('./routes/authRoutes')
 const app=express()
 
+//Pour permettre de parser et utiliser le methode POST
 app.use(express.json())
 
-app.get('/api/ping',(req,res,next)=>{
-    res.status(200).json({message: "Votre serveur marche correctement !!!"})
-})
+//routes
+app.use('/api/auth',userRoutes)
+
 
 module.exports=app
