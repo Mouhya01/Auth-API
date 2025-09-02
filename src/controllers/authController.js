@@ -5,6 +5,9 @@ const bcrypt=require('bcrypt')
 //pour la creation de token d'identification
 const jwt=require('jsonwebtoken')
 
+//Pour la gestion d'erreur centralisée
+const ApiError = require('../utils/ApiError');
+
 exports.signup=(req,res,next)=>{
     bcrypt.hash(req.body.password,10)
         .then(hash=>{
@@ -20,9 +23,7 @@ exports.signup=(req,res,next)=>{
                 })
                 .catch((error)=>{res.status(400).json({error})})
         })
-        .catch((error)=>{
-            res.status(500).json({error})
-        })
+        .catch((error)=>next(error))
 }
 
 exports.login=(req,res,next)=>{
@@ -46,7 +47,7 @@ exports.login=(req,res,next)=>{
                         })
                     }
                 })
-                .catch((error)=>{res.status(401).json({error})})
+                .catch((error)=>next(error))
         })
-        .catch((error)=>{res.status(401).json({message:"Utilisateur non trouvée!!"})})
+        .catch((error)=>next(error))
 }
