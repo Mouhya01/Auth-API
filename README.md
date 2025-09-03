@@ -57,7 +57,7 @@ JWT_SECRET=[un_secret_long_au_hasard]
 3) Lancer le server:
 
 nodemon server.js
-# ou
+ou
 node server.js
 
 Par défaut: http://localhost:3000 , si le port est deja utilisée supprime avec la commande kill-port 3000 et redemarrer le server
@@ -133,25 +133,25 @@ Réponse 401 si token manquant/invalide
 
 ---
 
+
+
 ## ⚙️ Structure du projet
 
-AUTH-API/ # Racine du projet
-├── src/ # Code source principal
-│ ├── config/ # Fichiers de configuration (DB, etc.)
-│ ├── controllers/ # Logique métier (authController.js)
-│ ├── middleware/ # Middlewares (authMiddleware.js, errorMiddleware.js)
-│ ├── models/ # Schémas Mongoose (User.js)
-│ ├── routes/ # Définition des routes (authRoutes.js)
-│ ├── utils/ # Outils divers (ApiError.js, generateToken.js)
-│ └── app.js # Fichier principal Express (chargement routes + middlewares)
-├── tests/ # Tests unitaires/intégration (optionnel)
-├── .env # Variables d'environnement locales (non versionné)
-├── .env.example # Exemple de configuration .env
-├── .gitignore # Fichiers/dossiers ignorés par Git
-├── package.json # Dépendances et scripts npm
-├── package-lock.json # Versions exactes des dépendances
-├── README.md # Documentation du projet
-└── server.js # Point d'entrée (lancement du serveur)
+AUTH-API/                # Racine du projet
+├── config/              # Fichiers de configuration (connexion DB, etc.)
+├── controllers/         # Logique métier (authController.js)
+├── middleware/          # Middlewares (authMiddleware.js, errorMiddleware.js)
+├── models/              # Schémas Mongoose (User.js)
+├── routes/              # Définition des routes (authRoutes.js)
+├── utils/               # Outils divers (ApiError.js, generateToken.js)
+├── .env                 # Variables d'environnement locales (non versionné)
+├── .env.example         # Exemple de configuration .env
+├── .gitignore           # Fichiers/dossiers ignorés par Git
+├── package.json         # Dépendances et scripts npm
+├── package-lock.json    # Versions exactes des dépendances
+├── README.md            # Documentation du projet
+└── server.js            # Point d'entrée principal (lancement du serveur)
+
 
 ---
 
