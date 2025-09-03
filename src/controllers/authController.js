@@ -51,3 +51,14 @@ exports.login=(req,res,next)=>{
         })
         .catch((error)=>next(error))
 }
+
+exports.logout=(req,res,next)=>{
+    
+    //recuperation du token 
+    const authHeader= req.headers.authorization || ''
+    const token=authHeader.startsWith('Bearer')? authHeader.split(' ')[1] : null
+
+    return res.status(200).json({message: "Déconnexion réussie"})
+}
+
+

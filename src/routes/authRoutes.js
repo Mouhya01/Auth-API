@@ -17,6 +17,7 @@ router.get('/profile', authMiddleware, (req, res) => {
 //Route pour le signup
 router.post('/signup',userControllers.signup)
 router.post('/login',userControllers.login)
+router.post('/logout',userControllers.logout)
 
 
 //exportation du router
